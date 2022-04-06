@@ -7,7 +7,7 @@ RUN apt-get install python3-pip -y
 RUN apt-get install ncbi-blast+ -y
 COPY . ./app
 WORKDIR ./app
-RUN makeblastdb -in fasta_result.fasta -dbtype nucl -title fasta_result -out /app/blastWebService/database/nucl/fasta_result
+RUN makeblastdb -in fasta_result.fasta -dbtype nucl -title fasta_result -out /app/PGPBgenes/database/nucl/fasta_result
 RUN rm fasta_result.fasta
 RUN pip install -r requirements.txt
 EXPOSE 5000
