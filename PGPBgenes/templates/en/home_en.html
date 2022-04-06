@@ -1,0 +1,128 @@
+{% extends "en/layout_en.html" %}
+{% block content_en %}
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a>Home</a></li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col-12">
+    <article class="content-section d-flex align-items-center">
+      <div class="flex-grow-1 ms-3 mx-4">
+        <h2 class="mt-2">What is blast?</h2>
+        <p class="article-content">
+          The Basic Local Alignment Search Tool (BLAST) is an algorithm for comparing primary biological sequence information.
+        </p>
+        <p class="article-content">
+          The program compares nucleotide or amino-acid query sequences of DNA or RNA to sequence databases and directly approximates alignments that optimize a measure of local similarity, the maximal segment pair (MSP)score. It allows to filter the output, to infer functional and evolutionary relationships between sequences aswell as help identify members of gene families. BLAST can also be used to realize motif searches, geneidentification searches, to analyze multiple regions of similarity in long DNA sequences, to remove low-complexityregion or sequence repeats in the query sequence, extend the exact matches to high-scoring segment pair (HSP) andevaluate the significance of the HSP score. In short, as The New York Times called, it is the Google of biologicalresearch.
+        </p>
+      </div>
+    </article>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <article class="content-section d-flex align-items-center">
+      <div class="flex-grow-1 ms-3 mx-4">
+        <h2 class="mt-2">About this project</h2>
+        <p class="article-content">
+          The aim of the project is to empower researchers working with molecular biology to have a more user-friendly, flexible and controllable access under the NCBI Blast+ tool.
+        </p>
+        <p class="article-content">
+          This program is capable of performing DNA sequence alignment against a database containing acds, acka, esps, gdc,glta,mdh, nifh, phnx, phod, pita, ppc, pqq, psts genes. For more details on how to use the tool, go to the <a
+            href="{{ url_for('main.tutorials_en') }}">tutorials</a>.
+        </p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <article class="content-section">
+      <div class="flex-grow-1 ms-3 mx-4">
+        <h2 class="mt-2">The database</h2>
+        <div class="table-responsive home-table">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="text-center col">Gene</th>
+                <th class="text-center col">Nº of sequences</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">acds</td>
+                <td class="text-center">516</td>
+              </tr>
+              <tr>
+                <td class="text-center">acka</td>
+                <td class="text-center">154</td>
+              </tr>
+              <tr>
+                <td class="text-center">esps</td>
+                <td class="text-center">17</td>
+              </tr>
+              <tr>
+                <td class="text-center">gdc</td>
+                <td class="text-center">7</td>
+              </tr>
+              <tr>
+                <td class="text-center">glta</td>
+                <td class="text-center">3531</td>
+              </tr>
+              <tr>
+                <td class="text-center">mdh</td>
+                <td class="text-center">511</td>
+              </tr>
+              <tr>
+                <td class="text-center">nifh</td>
+                <td class="text-center">6740</td>
+              </tr>
+              <tr>
+                <td class="text-center">phnx</td>
+                <td class="text-center">56</td>
+              </tr>
+              <tr>
+                <td class="text-center">phod</td>
+                <td class="text-center">1418</td>
+              </tr>
+              <tr>
+                <td class="text-center">pita</td>
+                <td class="text-center">482</td>
+              </tr>
+              <tr>
+                <td class="text-center">ppc</td>
+                <td class="text-center">121</td>
+              </tr>
+              <tr>
+                <td class="text-center">pqq</td>
+                <td class="text-center">39</td>
+              </tr>
+              <tr>
+                <td class="text-center">psts</td>
+                <td class="text-center">738</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </article>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <article class="content-section">
+      <div class="flex-grow-1 ms-3 mx-4">
+        <h2 class="mt-2">Citation</h2>
+      <blockquote class="blockquote">
+        <p class="article-content">
+          This service uses <a class="link-dark" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" target="_blank">NCBI Blast+ Application</a>
+        </p>
+        <footer class="blockquote-footer">Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. <cite title="NCBI Blast citation">Basic local alignment search tool. J Mol Biol. 1990 Oct 5;215(3):403-10. doi: 10.1016/S0022-2836(05)80360-2. PMID: 2231712.</cite></footer>
+      </blockquote>
+    </article>
+  </div>
+</div>
+
+{% endblock content_en %}

@@ -1,0 +1,76 @@
+{% extends "pt_br/layout_pt_br.html" %}
+{% block blast_pt_br %}
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ url_for('main.home_pt_br') }}">Página inicial</a></li>
+      <li class="breadcrumb-item"><a>Blast</a></li>
+    </ol>
+</nav>
+<article class="content-section d-flex align-items-center">
+    <div class="flex-grow-1 ms-3 mx-4">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ blast_form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Executar blast</legend>
+                <div class="form-group">
+                    {{ blast_form.genome.label(class="form-control-label") }}
+                    {% if blast_form.genome.errors %}
+                    <div class="invalid-feedback">
+                        {% for error in blast_form.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {{ blast_form.genome(class="form-control form-control is-invalid") }}
+                    {% else %}
+                    {{ blast_form.genome(class="form-control form-control") }}
+                    {% endif %}
+                </div>
+                {#% if blast_form.nucl_databases %}
+                <div class="form-group">
+                    <legend class="border-bottom my-4">BDs de nucleotideos</legend>
+                    {{ blast_form.nucl_databases(class="my-3") }}
+                </div>
+                {% endif %}
+                {% if blast_form.prot_databases %}
+                <div class="form-group">
+                    <legend class="border-bottom my-4">BDs de proteínas</legend>
+                    {{ blast_form.prot_databases(class="my-3") }}
+                </div>
+                {% endif %#}
+            </fieldset>
+            <div class="form-group">
+                {{ blast_form.submit(class="btn btn-outline-info my-2") }}
+            </div>
+        </form>
+    </div>
+</article>
+{% block blast_result_pt_br %}{% endblock %}
+{#% if not blast_result %}
+<article class="content-section d-flex align-items-center">
+    <div class="flex-grow-1 ms-3 mx-4">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ database_form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Criar banco de dados</legend>
+                <div class="form-group">
+                    {{ database_form.database.label(class="form-control-label") }}
+                    {% if database_form.database.errors %}
+                    {{ database_form.database(class="form-control form-control is-invalid") }}
+                    {{ database_form.database_type(class="m-3")}}
+                    {% else %}
+                    {{ database_form.database(class="form-control form-control") }}
+                    
+                    {{ database_form.database_type(class="m-3")}}
+
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ database_form.submit(class="btn btn-outline-info my-2") }}
+            </div>
+        </form>
+    </div>
+</article>
+{% endif %#}
+
+{% endblock %}

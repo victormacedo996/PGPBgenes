@@ -1,0 +1,13 @@
+env
+__pycache__
+.vscode
+.env
+ncbi-blast
+fasta_result.ndb
+fasta_result.nhr
+fasta_result.nin
+fasta_result.not
+fasta_result.nsq
+fasta_result.ntf
+fasta_result.nto
+fasta_result.fasta

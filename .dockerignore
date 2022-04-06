@@ -1,0 +1,7 @@
+README.md
+*.fasta
+env
+ncbi-blast
+__pycache__
+.vscode
+.env

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+  {% if title %}
+  <title>PGPBgenes - {{ title }}</title>
+  {% else %}
+  <title>PGPBgenes</title>
+  {% endif %}
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="{{ url_for('main.home_pt_br') }}">PGPBgenes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="{{ url_for('main.home_pt_br') }}">Página inicial</a>
+            <a class="nav-item nav-link" href="{{ url_for('blast.home_pt_br') }}">Blast</a>
+            <a class="nav-item nav-link" href="{{ url_for('main.tutorials_pt_br') }}">Tutoriais</a>
+            <li class="nav-item dropdown bg-steel">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Traduções <img src="{{ url_for('static', filename='icons/translate.svg') }}"
+                  alt="icone de tradução">
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{{ url_for('main.home_en') }}"><img width="20%"
+                      src="{{ url_for('static', filename='icons/us.svg') }}" alt="us flag"> English</a></li>
+                <li><a class="dropdown-item" href=""><img width="20%"
+                      src="{{ url_for('static', filename='icons/br.svg') }}" alt="brazilian flag"> Portuges</a></li>
+              </ul>
+            </li>
+          </div>
+          <!-- Navbar Right Side -->
+        </div>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- se for usar side bar colocar col-md-8 -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block content_pt_br %}{% endblock %}
+        {% block blast_pt_br %}{% endblock %}
+      </div>
+      <!-- <div class="col-md-4">
+          <div class="content-section">
+            <h3>Our Sidebar</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Latest Posts</li>
+                <li class="list-group-item list-group-item-light">Announcements</li>
+                <li class="list-group-item list-group-item-light">Calendars</li>
+                <li class="list-group-item list-group-item-light">etc</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div> -->
+  </main>
+
+  <footer class="footer mt-auto py-3 bg-steel sticky-bottom">
+    <div class="text-center container">
+      Desenvolvido por <a class="link-dark" href="https://www.linkedin.com/in/victormacedo996/">Victor Macedo</a> em
+      parceria
+      com <a class="link-dark" href="https://www.linkedin.com/in/victor-augustus-marin-526514201/">Victor Marin</a>
+      ©2022-{{ date }}
+    </div>
+    <div class="container text-center border-top mt-2 p-2">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <div class="mx-2">
+            <a class="mx-1" href=""><img class="img-fluid footer-icon"
+                src="{{ url_for('static', filename='icons/github.svg') }}" alt="Icone do GitHub"></a>
+            <p> <a class="link-dark" href="https://github.com/victormacedo996/PGPBgenes">Código fonte</a></p>
+          </div>
+          <div class="mx-2">
+            <a class="mx-1" href=""><img class="img-fluid footer-icon"
+                src="{{ url_for('static', filename='icons/docker.svg') }}" alt="Icone do Docker"></a>
+            <p> <a class="link-dark" href="https://hub.docker.com/r/victormacedo996/pgpbgenes">Imagem Docker</a></p>
+          </div>
+        </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+
+
+</html>
