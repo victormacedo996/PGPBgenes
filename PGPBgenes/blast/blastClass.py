@@ -7,10 +7,9 @@ from multiprocessing import cpu_count
 
 
 class Blast():
-    def __init__(self, genome): #, db)
+    def __init__(self, genome):
         self.threads = cpu_count()
         self.genome = genome
-        # self.db = db
         self.temp_file_path = None
 
     def blast_search_file(self):
@@ -49,11 +48,9 @@ class Blast():
 
     def save_temp_file(self, file):
         """Save file to temp folder"""
-        # filename = secure_filename(f'{secrets.token_hex(8)}_{form.genome.data.filename}')
         filename = secure_filename(f'{secrets.token_hex(8)}_{file.filename}')
         tempfile_path = os.path.join(
             current_app.root_path, 'blast/temp', filename)
-        # form.genome.data.save(tempfile_path)
         file.save(tempfile_path)
         return tempfile_path
 
@@ -77,19 +74,4 @@ class Blast():
         else:
             os.remove(tempfile_path)
             return None, {'stderr': stderr.decode('utf-8')}
-
-
-# class CreateDB(Blast):
-#     def __init__(self, database, db_type):
-#         self.database = database
-#         self.db_type = 'nucl' if db_type == 'nucleotide' else 'prot'
-
-#     def create_db(self):
-#         db_file = self.save_temp_file(self.database)
-#         blast_command = ['makeblastdb', '-in', db_file, '-dbtype', self.db_type, '-title', self.database.filename.replace('.fasta', ''), '-out',
-#                          str(os.path.join(current_app.root_path, f"database/{self.db_type}/{self.database.filename.replace('.fasta', '')}"))]
-#         p = subprocess.Popen(
-#             blast_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-#         stdout, stderr = p.communicate()
-#         os.remove(db_file)
-#         return stdout.decode('utf-8'), stderr.decode('utf-8')
+            
