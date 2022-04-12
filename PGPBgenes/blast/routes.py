@@ -23,8 +23,7 @@ def home_pt_br():
     date = datetime.now()
     blast_form = BlastForm()
     if blast_form.validate_on_submit():
-        db = { key: value for key, value in blast_form.data.items() if 'prot_databases' or 'nucl_databases' in key }
-        blast = Blast(genome=blast_form.data['genome'], db=db)
+        blast = Blast(genome=blast_form.data['genome'])
         blast, error = blast.blast_search()
         if error:
             if error['stderr'] == 'No match found':
